@@ -1,6 +1,6 @@
 [project]
 name = "rational-matrix-arithmetic-utils"
-version = "0.1.0"
+version = "0.1.1"
 description = "Exact rational matrix arithmetic for Python's standard library."
 requires-python = ">=3.10"
 dependencies = []
