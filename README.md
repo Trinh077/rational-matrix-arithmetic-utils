@@ -36,3 +36,10 @@ Numerical linear algebra over the rationals is useful when a result must be chec
 Singular matrices passed to `inverse` raise `ZeroDivisionError`; non-square matrices passed to `determinant` or `inverse` raise `ValueError`.
 
 Determinant and inverse use Laplace (cofactor) expansion, which is `O(n!)`. This is fine for the intended use case of small matrices and keeps the implementation easy to audit.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
